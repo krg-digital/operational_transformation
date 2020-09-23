@@ -24,11 +24,11 @@ fn main() {
 
 fn is_valid(stale: &str, latest: &str, otjson: Vec<Operation>) -> bool {
     let mut ot = OperationalTransformation::new(String::from(stale), otjson);
+    let transformed_string = ot.transform();
 
-    ot.transform() == String::from(latest)
+    transformed_string == String::from(latest)
 }
 
-#[derive(Debug)]
 struct OperationalTransformation {
     s: String,
     position: usize,
@@ -59,7 +59,6 @@ impl OperationalTransformation {
     }
 }
 
-#[derive(Debug)]
 enum Operation {
     Insert(String),
     Delete(usize),
