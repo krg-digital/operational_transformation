@@ -28,13 +28,6 @@ fn is_valid(stale: &str, latest: &str, otjson: Vec<Operation>) -> bool {
     ot.transform() == String::from(latest)
 }
 
-fn insert(s: String, ins: String) -> String {
-    let mut res = ins.clone();
-    res.push_str(&s);
-
-    res
-}
-
 #[derive(Debug)]
 struct OperationalTransformation {
     s: String,
